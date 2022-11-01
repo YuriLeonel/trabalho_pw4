@@ -1,38 +1,33 @@
 const Sequelize = require("sequelize");
-const banco = require("../db.js");
+const database = require("../db.js");
 
-const Account = banco.define("conta", {
-    id_account:{
+const Agents = database.define("agents", {
+    id_agent:{
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    login: {
+    name: {
         type: Sequelize.STRING,
         allowNull: false,
         primaryKey: false
     },
-    senha: {
+    description: {
         type: Sequelize.STRING,
         allowNull: false,
         primaryKey: false
     },
-    hash: {
+    displayIcon: {
         type: Sequelize.STRING,
         allowNull: false,
         primaryKey: false
     },
-    email: {
+    role: {
         type: Sequelize.STRING,
         allowNull: false,
         primaryKey: false
     },
-    region: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        primaryKey: false
-    }
 })
 
-module.exports = Account;
+module.exports = Agents;
