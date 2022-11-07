@@ -72,4 +72,26 @@ router.delete("/deleteAgent", (req,res) => {
     }
 })
 
+router.put("/updateAgent", (req,res) => {
+    if(req.body != null){
+
+        (async ()=> {
+            await database.sync();
+
+            await Agents.update(
+                {name: req.body.name,
+                    description: req.body.description,
+                    displayIcon: req.body.displayIcon,
+                    role: req.body.displayName},
+                { where: { id_agent: req.query.id} }
+              )
+
+              res.status(200).send("Update Success.");
+
+        })();
+    }else{
+        res.status(200).send("JSON missing.");
+    }
+})
+
 module.exports = router;

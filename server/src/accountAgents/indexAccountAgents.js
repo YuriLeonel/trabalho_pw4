@@ -73,4 +73,28 @@ router.delete("/deleteAccountAgent", (req,res) => {
         res.status(200).send("ID not received.");
     }
 })
+
+
+
+router.put("/updateAccountAgent", (req,res) => {
+    if(req.body != null){
+
+        (async ()=> {
+            await database.sync();
+
+            await AccountAgent.update(
+                {id_account: req.body.id_account,
+                    id_agent: req.body.id_agent,
+                    main: req.body.main },
+                { where: { id_account_agent: req.query.id} }
+              )
+
+              res.status(200).send("Update Success.");
+
+        })();
+    }else{
+        res.status(200).send("JSON missing.");
+    }
+})
+
 module.exports = router;

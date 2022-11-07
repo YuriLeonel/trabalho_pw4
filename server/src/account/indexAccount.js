@@ -96,4 +96,28 @@ router.delete("/deleteAccount", (req, res) => {
     }
 })
 
+router.put("/updateAccount", (req,res) => {
+    if(req.body != null){
+
+        (async ()=> {
+            await database.sync();
+
+            await Account.update(
+                {login: req.body.login,
+                    password: req.body.password,
+                    nickname: req.body.nickname,
+                    tag: req.body.tag,
+                    region: req.body.region},
+                { where: { id_account: req.query.id} }
+              )
+
+              res.status(200).send("Update Success.");
+
+        })();
+    }else{
+        res.status(200).send("JSON missing.");
+    }
+})
+
+
 module.exports = router;
