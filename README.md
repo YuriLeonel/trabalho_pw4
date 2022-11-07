@@ -19,9 +19,9 @@ Desenvolver uma aplicação que faça comunicação com uma [API externa](https:
 ## Tutorial de execução
 
 - Como esta aplicação será desenvolvida em Javascript, será necessário o download do [nodeJs](https://nodejs.org/en/). Após instalado, basta clonar este repositório em seu local desejado e abrir o projeto em sua IDE de preferência.
-- Já com o projeto aberto, abra também um terminal e instale as dependências inserindo ```npm install``` e enviando
-- Espere o fim da instalação e o projeto já estará disponível para ser executado através do comando
-```node index.js```
+- Já com o projeto aberto, abra também um terminal e instale as dependências utilizando ```npm install```
+- Execute o arquivo para popular o banco com ```node initDB.js```
+- Inicie o projeto utilizando o comando ```node index.js```
 
 
 _Realizado por Yuri Leonel e Eduardo Castro_
