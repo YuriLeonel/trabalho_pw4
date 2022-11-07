@@ -15,7 +15,13 @@ i18n.configure({
 
 
 app.use(express.json())
-app.use("/contas", require("./account/indexAccount"));
+app.use("/account", require("./account/indexAccount.js"));
+app.use("/agent", require("./agents/indexAgent.js"));
+app.use("/account_agent", require("./accountAgents/indexAccountAgents.js"));
+
+// app.get("/checkAccount" , (req,res) => {
+//   console.log("Entrou no checkAccount id");
+// })
 
 app.listen(port, function () {
   console.log(`Servidor iniciado na porta ${port}`);
