@@ -31,15 +31,6 @@ router.get("/checkAgent", (req,res) => {
 
 router.post("/newAgent", (req, res) => {
 
-    // Valida se o e-mail já possui conta
-
-    // Valida se o nome de usuário com a Hash já está sendo utilizado
-
-    // Se passou pelas validações retorna o ok
-
-    // Se parou nas validações responde com erro.
-    
-
     if(req.body != null){
 
         (async ()=> {
@@ -57,6 +48,28 @@ router.post("/newAgent", (req, res) => {
         res.status(200).send("JSON missing.");
     }
 
+})
+
+
+router.delete("/deleteAgent", (req,res) => {
+    const id = req.query.id;
+    if(id != null){
+        (async ()=> {
+            await database.sync();
+
+            await Agent.destroy({
+                where : {'id_agent' : id}
+            })
+
+
+            res.status(200).send("ID not received.");
+
+
+        })();
+
+    }else{
+        res.status(200).send("ID not received.");
+    }
 })
 
 module.exports = router;

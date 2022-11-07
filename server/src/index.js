@@ -26,3 +26,4 @@ app.use("/account_agent", require("./accountAgents/indexAccountAgents.js"));
 app.listen(port, function () {
   console.log(`Servidor iniciado na porta ${port}`);
 })
+

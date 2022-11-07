@@ -75,4 +75,25 @@ router.post("/newAccount", (req, res) => {
 
 })
 
+router.delete("/deleteAccount", (req, res) => {
+    const id = req.query.id;
+    if(id != null){
+        (async ()=> {
+            await database.sync();
+
+            await Account.destroy({
+                where : {'id_account' : id}
+            })
+
+
+            res.status(200).send("ID not received.");
+
+
+        })();
+
+    }else{
+        res.status(200).send("ID not received.");
+    }
+})
+
 module.exports = router;

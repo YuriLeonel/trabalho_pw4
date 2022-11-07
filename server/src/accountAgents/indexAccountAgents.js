@@ -52,4 +52,25 @@ router.post("/newAccountAgent", (req, res) => {
 
 })
 
+
+router.delete("/deleteAccountAgent", (req,res) => {
+    const id = req.query.id;
+    if(id != null){
+        (async ()=> {
+            await database.sync();
+
+            await AccountAgent.destroy({
+                where : {'id_account_agent' : id}
+            })
+
+
+            res.status(200).send("ID not received.");
+
+
+        })();
+
+    }else{
+        res.status(200).send("ID not received.");
+    }
+})
 module.exports = router;
