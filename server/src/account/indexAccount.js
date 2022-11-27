@@ -63,15 +63,7 @@ router.post("/newAccount", (req, res) => {
         res.status(200).send("JSON missing.");
     }
 
-    // Valida se o nome de usuário com a Hash já está sendo utilizado
 
-    // Se passou pelas validações retorna o ok
-
-    // Se parou nas validações responde com erro.
-    
-    // console.log(req.body);
-    // var json_received = req.body;
-    // res.json(req.body);
 
 })
 
@@ -117,6 +109,33 @@ router.put("/updateAccount", (req,res) => {
     }else{
         res.status(200).send("JSON missing.");
     }
+})
+
+// Validar login
+router.get("/validateAccount", (req,res) => {
+
+const login = req.query.login;
+const password = req.query.password;
+
+if(login != null && password != null){
+        
+    (async ()=> {
+        await database.sync();
+        const select = await Account.findOne({ where: { login: login , password: password}});
+
+        if(select != null){
+            res.status(200).json(select);
+        }else{
+            res.status(200).send("User not found.");
+        }
+        
+
+        
+    })();
+}else{
+    res.status(200).send("Params not received.");
+}
+
 })
 
 
