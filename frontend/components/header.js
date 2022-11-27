@@ -21,6 +21,9 @@ function Header() {
             <Nav.Link href="/agent">Agents</Nav.Link>
           </Nav>
           <Nav className="me-auto">
+            <Nav.Link href="/matchs">Matchs</Nav.Link>
+          </Nav>
+          <Nav className="me-auto">
             <Nav.Link href="/profile">Profile</Nav.Link>
           </Nav>
         </Container>

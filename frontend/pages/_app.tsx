@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/index.css";
 import "bootstrap/dist/css/bootstrap.css";
 import type { AppProps } from "next/app";
 import SSRProvider from "react-bootstrap/SSRProvider";
