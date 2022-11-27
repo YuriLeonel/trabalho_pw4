@@ -1,13 +1,7 @@
-
+/* import { useState, useEffect } from "react"; */
 
 export default function Home() {
   return (
-    <div>
-      <main>
-        <h1>
-          Hello World
-        </h1>
-      </main>
-    </div>
+    <div>Hello world test /</div>
   )
 }
