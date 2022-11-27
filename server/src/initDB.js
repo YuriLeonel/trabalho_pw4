@@ -27,7 +27,7 @@ const Matchs = require("./model/matchs.js");
     /* await Agents.drop(); */
 
     /* This populate the agents table with each agent */
-    // allAgents.map(({displayName, description, displayIcon, role}) => {
+    allAgents.map(({displayName, description, displayIcon, role}) => {
         Agents.create({
             name: displayName,
             description,
@@ -37,7 +37,7 @@ const Matchs = require("./model/matchs.js");
     }) 
 
     /* This create the table that join the account table with the agent table */
-    await AccountAgent.create({
+     AccountAgent.create({
             id_account: "1",
             id_agent: "1",
             main: true
