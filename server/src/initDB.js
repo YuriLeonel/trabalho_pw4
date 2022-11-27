@@ -4,6 +4,7 @@ const axios = require('axios');
 const Account = require("./model/account.js");
 const Agents = require("./model/agents.js");
 const AccountAgent = require("./model/account_agent.js");
+const Matchs = require("./model/matchs.js");
 
 (async ()=> {
     await database.sync();
@@ -26,7 +27,7 @@ const AccountAgent = require("./model/account_agent.js");
     /* await Agents.drop(); */
 
     /* This populate the agents table with each agent */
-    allAgents.map(({displayName, description, displayIcon, role}) => {
+    // allAgents.map(({displayName, description, displayIcon, role}) => {
         Agents.create({
             name: displayName,
             description,
@@ -42,7 +43,13 @@ const AccountAgent = require("./model/account_agent.js");
             main: true
         }) 
 
-    /* await AccountAgent.drop();  */
+    await Matchs.create({
+            id_account_one: "1",
+            id_account_two: "2",
+            active: true
+    }) 
+
+    //  await Matchs.drop();  
 
 
 })();
