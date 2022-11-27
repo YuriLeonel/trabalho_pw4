@@ -1,5 +1,8 @@
+/* import { User } from "../types/user.types"; */
 
-export default function Agent() {
+
+function Profile() {
+
     return (
       <div>
         <main>
@@ -11,3 +14,5 @@ export default function Agent() {
     )
   }
   
+export default Profile
+
