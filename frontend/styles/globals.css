@@ -11,6 +11,20 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style-type: none;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.app-justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app-justify-around {
+  display: flex;
+  justify-content: space-around;
 }
